@@ -1,0 +1,265 @@
+import React, { useState } from ‘react’;
+import { ChevronDown, ChevronUp, X, BookOpen, Clock, User, Calendar, Target } from ‘lucide-react’;
+
+const SyllabusSystem = () => {
+const [selectedSyllabus, setSelectedSyllabus] = useState(null);
+
+const syllabusData = [
+{
+id: 1,
+title: “データベース設計論”,
+instructor: “田中 太郎”,
+credits: 2,
+semester: “2024年度 前期”,
+time: “火曜日 3限”,
+room: “情報棟 201”,
+}
+
+{
+id: 2,
+title: “機械学習入門”,
+instructor: “佐藤 花子”,
+credits: 3,
+semester: “2024年度 前期”,
+time: “木曜日 2限”,
+room: “AI研究棟 301”,
+overview: “機械学習の基礎理論から実装まで幅広く学習します。教師あり学習、教師なし学習、深層学習の基本概念を理解し、Pythonを用いた実装演習を通じて実践的なスキルを身につけます。”,
+objectives: [
+“機械学習の基本概念と分類を理解する”,
+“主要なアルゴリズムの仕組みを説明できる”,
+“Pythonを用いた機械学習の実装ができる”,
+“実際の問題に機械学習を適用できる”
+],
+schedule: [
+{ week: 1, topic: “機械学習概論” },
+{ week: 2, topic: “教師あり学習：回帰分析” },
+{ week: 3, topic: “教師あり学習：分類問題” },
+{ week: 4, topic: “決定木とランダムフォレスト” },
+{ week: 5, topic: “サポートベクターマシン” },
+{ week: 6, topic: “教師なし学習：クラスタリング” },
+{ week: 7, topic: “次元削減：主成分分析” },
+{ week: 8, topic: “中間試験” },
+{ week: 9, topic: “ニューラルネットワーク基礎” },
+{ week: 10, topic: “深層学習入門” },
+{ week: 11, topic: “畳み込みニューラルネットワーク” },
+{ week: 12, topic: “自然言語処理への応用” },
+{ week: 13, topic: “強化学習入門” },
+{ week: 14, topic: “最終プロジェクト発表” },
+{ week: 15, topic: “期末試験” }
+],
+evaluation: “中間試験25%、期末試験35%、プログラミング課題30%、最終プロジェクト10%”,
+textbooks: [“機械学習入門（第2版）- AI出版社”, “Pythonではじめる機械学習 - データサイエンス社”],
+prerequisites: “線形代数、確率統計、プログラミング基礎を履修済みであること”
+},
+{
+id: 3,
+title: “ウェブデザイン実践”,
+instructor: “山田 次郎”,
+credits: 2,
+semester: “2024年度 後期”,
+time: “月曜日 4限”,
+room: “デザイン棟 105”,
+overview: “現代的なウェブデザインの理論と実践を学びます。HTML/CSS、JavaScript、レスポンシブデザイン、UI/UXデザインの基本原則を習得し、実際にウェブサイトを制作します。”,
+objectives: [
+“HTML/CSSの基本文法を習得する”,
+“レスポンシブデザインを実装できる”,
+“UI/UXデザインの原則を理解する”,
+“実用的なウェブサイトを制作できる”
+],
+schedule: [
+{ week: 1, topic: “ウェブデザイン概論” },
+{ week: 2, topic: “HTML基礎” },
+{ week: 3, topic: “CSS基礎：スタイリング” },
+{ week: 4, topic: “CSS応用：レイアウト” },
+{ week: 5, topic: “レスポンシブデザイン” },
+{ week: 6, topic: “JavaScript基礎” },
+{ week: 7, topic: “DOM操作とイベント処理” },
+{ week: 8, topic: “中間課題発表” },
+{ week: 9, topic: “UI/UXデザイン原則” },
+{ week: 10, topic: “カラーデザインとタイポグラフィ” },
+{ week: 11, topic: “アニメーションとエフェクト” },
+{ week: 12, topic: “Webアクセシビリティ” },
+{ week: 13, topic: “最終制作（制作期間）” },
+{ week: 14, topic: “最終制作発表” },
+{ week: 15, topic: “総括とレビュー” }
+],
+evaluation: “中間課題30%、最終制作40%、小テスト20%、出席・参加度10%”,
+textbooks: [“現代ウェブデザイン教本 - デザイン出版”, “HTML/CSS完全ガイド - ウェブ技術社”],
+prerequisites: “情報リテラシーを履修済みであること”
+}
+];
+
+const handleSyllabusSelect = (syllabusId) => {
+if (selectedSyllabus === syllabusId) {
+setSelectedSyllabus(null);
+} else {
+setSelectedSyllabus(syllabusId);
+}
+};
+
+const handleClose = () => {
+setSelectedSyllabus(null);
+};
+
+return (
+<div className="max-w-6xl mx-auto p-6 bg-gray-50 min-h-screen">
+<div className="mb-8">
+<h1 className="text-3xl font-bold text-gray-800 mb-2">講義シラバス一覧</h1>
+<p className="text-gray-600">講義をクリックしてシラバスを確認してください</p>
+</div>
+
+```
+  {/* 講義一覧 */}
+  <div className="space-y-4">
+    {syllabusData.map((syllabus) => (
+      <div key={syllabus.id} className="bg-white rounded-xl shadow-md">
+        {/* 講義カード */}
+        <div
+          className="p-6 cursor-pointer hover:shadow-lg transition-shadow border-l-4 border-blue-500 rounded-xl"
+          onClick={() => handleSyllabusSelect(syllabus.id)}
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex-1">
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">{syllabus.title}</h3>
+              <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+                <div className="flex items-center gap-1">
+                  <User className="w-4 h-4" />
+                  {syllabus.instructor}
+                </div>
+                <div className="flex items-center gap-1">
+                  <Calendar className="w-4 h-4" />
+                  {syllabus.semester}
+                </div>
+                <div className="flex items-center gap-1">
+                  <Clock className="w-4 h-4" />
+                  {syllabus.time}
+                </div>
+                <div className="flex items-center gap-1">
+                  <BookOpen className="w-4 h-4" />
+                  {syllabus.credits}単位
+                </div>
+              </div>
+            </div>
+            {selectedSyllabus === syllabus.id ? (
+              <ChevronUp className="w-6 h-6 text-gray-400" />
+            ) : (
+              <ChevronDown className="w-6 h-6 text-gray-400" />
+            )}
+          </div>
+        </div>
+
+        {/* 選択されたシラバス詳細 */}
+        {selectedSyllabus === syllabus.id && (
+          <div className="border-t border-gray-200 p-8 bg-white rounded-b-xl">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold text-gray-800">{syllabus.title} - 詳細</h2>
+              <button
+                onClick={handleClose}
+                className="flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+              >
+                <X className="w-4 h-4" />
+                閉じる
+              </button>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* 基本情報 */}
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                    <BookOpen className="w-5 h-5" />
+                    基本情報
+                  </h3>
+                  <div className="bg-gray-50 rounded-lg p-4 space-y-2">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">担当教員:</span>
+                      <span className="font-medium">{syllabus.instructor}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">単位数:</span>
+                      <span className="font-medium">{syllabus.credits}単位</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">開講期:</span>
+                      <span className="font-medium">{syllabus.semester}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">時限:</span>
+                      <span className="font-medium">{syllabus.time}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">教室:</span>
+                      <span className="font-medium">{syllabus.room}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">授業概要</h3>
+                  <p className="text-gray-700 leading-relaxed">{syllabus.overview}</p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                    <Target className="w-5 h-5" />
+                    到達目標
+                  </h3>
+                  <ul className="space-y-2">
+                    {syllabus.objectives.map((objective, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <span className="text-blue-500 font-bold mt-1">{index + 1}.</span>
+                        <span className="text-gray-700">{objective}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">成績評価</h3>
+                  <p className="text-gray-700 bg-yellow-50 p-3 rounded-lg">{syllabus.evaluation}</p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">教科書・参考書</h3>
+                  <ul className="space-y-1">
+                    {syllabus.textbooks.map((book, index) => (
+                      <li key={index} className="text-gray-700">• {book}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">履修条件</h3>
+                  <p className="text-gray-700 bg-blue-50 p-3 rounded-lg">{syllabus.prerequisites}</p>
+                </div>
+              </div>
+
+              {/* 授業計画 */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">授業計画</h3>
+                <div className="space-y-3">
+                  {syllabus.schedule.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                      <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                        {item.week}
+                      </div>
+                      <div className="flex-1">
+                        <span className="text-gray-800 font-medium">{item.topic}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+```
+
+);
+};
+
+export default SyllabusSystem;
