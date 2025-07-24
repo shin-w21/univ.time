@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>講義シラバス一覧</title>
+    <title>講義シラバス - 2025年度春学期</title>
     <style>
         * {
             margin: 0;
@@ -12,286 +11,506 @@
             box-sizing: border-box;
         }
 
-```
-    body {
-        font-family: 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', 'メイリオ', Meiryo, sans-serif;
-        background-color: #f5f5f5;
-        padding: 40px 20px;
-        line-height: 1.6;
-    }
-
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .header {
-        margin-bottom: 40px;
-    }
-
-    .main-title {
-        font-size: 48px;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 20px;
-        letter-spacing: 2px;
-    }
-
-    .subtitle {
-        font-size: 18px;
-        color: #666;
-        margin-bottom: 40px;
-    }
-
-    .lecture-card {
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        margin-bottom: 30px;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .lecture-card::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 8px;
-        background: linear-gradient(135deg, #4CAF50, #45a049);
-    }
-
-    .lecture-content {
-        padding: 30px 30px 30px 40px;
-    }
-
-    .lecture-title {
-        font-size: 32px;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 30px;
-        letter-spacing: 1px;
-    }
-
-    .lecture-details {
-        display: grid;
-        gap: 20px;
-    }
-
-    .detail-item {
-        display: flex;
-        align-items: center;
-        font-size: 18px;
-    }
-
-    .detail-icon {
-        width: 24px;
-        height: 24px;
-        margin-right: 20px;
-        flex-shrink: 0;
-    }
-
-    .instructor-icon {
-        fill: #2196F3;
-    }
-
-    .calendar-icon {
-        fill: #4CAF50;
-    }
-
-    .clock-icon {
-        fill: #FF9800;
-    }
-
-    .location-icon {
-        fill: #F44336;
-    }
-
-    .book-icon {
-        fill: #9C27B0;
-    }
-
-    .detail-label {
-        font-weight: bold;
-        color: #555;
-        margin-right: 10px;
-        min-width: 80px;
-    }
-
-    .detail-value {
-        color: #333;
-    }
-
-
-
-    @media (max-width: 768px) {
-        .main-title {
-            font-size: 36px;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
-        
-        .lecture-title {
-            font-size: 24px;
-        }
-        
-        .lecture-content {
-            padding: 20px 20px 20px 30px;
-        }
-        
-        .detail-item {
-            font-size: 16px;
-        }
-    }
-</style>
-```
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .syllabus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .syllabus-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .syllabus-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .syllabus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .course-header {
+            margin-bottom: 20px;
+        }
+
+        .course-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .course-code {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .course-info {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #4a5568;
+            min-width: 80px;
+            font-size: 0.95rem;
+        }
+
+        .info-value {
+            color: #2d3748;
+            font-size: 0.95rem;
+        }
+
+        .professor {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .schedule {
+            color: #2d3748;
+        }
+
+        .credits {
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .search-container {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .search-box {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .search-box:focus {
+            outline: none;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .syllabus-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .syllabus-card {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1 class="main-title">講義シラバス一覧</h1>
-            <p class="subtitle">開講中の講義一覧です</p>
+            <h1>📚 講義シラバス</h1>
+            <p>2025年度 春学期 履修案内</p>
         </div>
 
-```
-        
-    <div class="lecture-card">
-        <div class="lecture-content">
-            <h2 class="lecture-title">データベース設計論</h2>
-            <div class="lecture-details">
-                <div class="detail-item">
-                    <svg class="detail-icon instructor-icon" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
-                    <span class="detail-label">担当教員:</span>
-                    <span class="detail-value">田中 太郎</span>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="講義名、教員名で検索..." id="searchBox">
+        </div>
+
+        <div class="syllabus-grid" id="syllabusGrid">
+            <!-- データベース設計論 -->
+            <div class="syllabus-card" data-course="データベース設計論" data-professor="田中太郎">
+                <div class="course-header">
+                    <div class="course-code">CS301</div>
+                    <h2 class="course-title">データベース設計論</h2>
                 </div>
-                <div class="detail-item">
-                    <svg class="detail-icon calendar-icon" viewBox="0 0 24 24">
-                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                    </svg>
-                    <span class="detail-label">開講期:</span>
-                    <span class="detail-value">2024年度 前期</span>
-                </div>
-                <div class="detail-item">
-                    <svg class="detail-icon clock-icon" viewBox="0 0 24 24">
-                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
-                        <path d="m12.5 7-1 1v5.25l4.5 2.67.75-1.23L13 13V8z"/>
-                    </svg>
-                    <span class="detail-label">時限:</span>
-                    <span class="detail-value">火曜日 3限</span>
-                </div>
-                <div class="detail-item">
-                    <svg class="detail-icon location-icon" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                    </svg>
-                    <span class="detail-label">教室:</span>
-                    <span class="detail-value">情報棟 201</span>
-                </div>
-                <div class="detail-item">
-                    <svg class="detail-icon book-icon" viewBox="0 0 24 24">
-                        <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
-                    </svg>
-                    <span class="detail-label">単位数:</span>
-                    <span class="detail-value">2単位</span>
+                
+                <div class="course-info">
+                    <div class="info-row">
+                        <span class="info-label">👨‍🏫 教員:</span>
+                        <span class="info-value professor">田中 太郎</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">📅 開講:</span>
+                        <span class="info-value schedule">火曜日 2限 (10:40-12:10)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">📍 教室:</span>
+                        <span class="info-value">A棟 201講義室</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">単位:</span>
+                        <span class="info-value credits">2単位</span>
+                    </div>
                 </div>
             </div>
+
+            <!-- Web開発実践 -->
+            <div class="syllabus-card" data-course="Web開発実践" data-professor="佐藤花子">
+                <div class="course-header">
+                    <div class="course-code">CS302</div>
+                    <h2 class="course-title">Web開発実践</h2>
+                </div>
+                
+                <div class="course-info">
+                    <div class="info-row">
+                        <span class="info-label">👩‍🏫 教員:</span>
+                        <span class="info-value professor">佐藤 花子</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">📅 開講:</span>
+                        <span class="info-value schedule">木曜日 3限 (13:00-14:30)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">📍 教室:</span>
+                        <span class="info-value">B棟 コンピュータ実習室1</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">単位:</span>
+                        <span class="info-value credits">3単位</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 機械学習入門 -->
+            <div>
+                <div class="course-header">
+                    <div class="course-code">AI201</div>
+                    <h2 class="course-title">機械学習入門</h2>
+                </div>
+                
+                <div class="course-info">
+                    <div class="info-row">
+                        <span class="info-label">教　員：</span>
+                        <span class="info-value professor">山田 一郎</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">開　講：</span>
+                        <span class="info-value schedule">月曜日 4限 (14:40-16:10)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">教　室：</span>
+                        <span class="info-value">C棟 301講義室</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">単　位：</span>
+                        <span class="info-value credits">2単位</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 機械学習入門 -->
+            <div>
+                <div class="course-header">
+                    <div class="course-code">AI201</div>
+                    <h2 class="course-title">機械学習入門</h2>
+                </div>
+                
+                <div class="course-info">
+                    <div class="info-row">
+                        <span class="info-label">教　員：</span>
+                        <span class="info-value professor">山田 一郎</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">開　講：</span>
+                        <span class="info-value schedule">月曜日 4限 (14:40-16:10)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">教　室：</span>
+                        <span class="info-value">C棟 301講義室</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">単　位：</span>
+                        <span class="info-value credits">2単位</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 機械学習入門 -->
+            <div>
+                <div class="course-header">
+                    <div class="course-code">AI201</div>
+                    <h2 class="course-title">機械学習入門</h2>
+                </div>
+                
+                <div class="course-info">
+                    <div class="info-row">
+                        <span class="info-label">教　員：</span>
+                        <span class="info-value professor">山田 一郎</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">開　講：</span>
+                        <span class="info-value schedule">月曜日 4限 (14:40-16:10)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">教　室：</span>
+                        <span class="info-value">C棟 301講義室</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">単　位：</span>
+                        <span class="info-value credits">2単位</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 機械学習入門 -->
+            <div>
+                <div class="course-header">
+                    <div class="course-code">AI201</div>
+                    <h2 class="course-title">機械学習入門</h2>
+                </div>
+                
+                <div class="course-info">
+                    <div class="info-row">
+                        <span class="info-label">教　員：</span>
+                        <span class="info-value professor">山田 一郎</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">開　講：</span>
+                        <span class="info-value schedule">月曜日 4限 (14:40-16:10)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">教　室：</span>
+                        <span class="info-value">C棟 301講義室</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">単　位：</span>
+                        <span class="info-value credits">2単位</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ソフトウェア工学 -->
+            <div class="syllabus-card" data-course="ソフトウェア工学" data-professor="鈴木次郎">
+                <div class="course-header">
+                    <div class="course-code">SE201</div>
+                    <h2 class="course-title">ソフトウェア工学</h2>
+                </div>
+                
+                <div class="course-info">
+                    <div class="info-row">
+                        <span class="info-label">👨‍🏫 教員:</span>
+                        <span class="info-value professor">鈴木 次郎</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">📅 開講:</span>
+                        <span class="info-value schedule">水曜日 1限 (09:00-10:30)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">📍 教室:</span>
+                        <span class="info-value">A棟 105講義室</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">単位:</span>
+                        <span class="info-value credits">2単位</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ネットワークセキュリティ -->
+            <div class="syllabus-card" data-course="ネットワークセキュリティ" data-professor="高橋美咲">
+                <div class="course-header">
+                    <div class="course-code">CS401</div>
+                    <h2 class="course-title">ネットワークセキュリティ</h2>
+                </div>
+                
+                <div class="course-info">
+                    <div class="info-row">
+                        <span class="info-label">👩‍🏫 教員:</span>
+                        <span class="info-value professor">高橋 美咲</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">📅 開講:</span>
+                        <span class="info-value schedule">金曜日 2限 (10:40-12:10)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">📍 教室:</span>
+                        <span class="info-value">D棟 セキュリティ実習室</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">単位:</span>
+                        <span class="info-value credits">3単位</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- モバイルアプリ開発 -->
+            <div class="syllabus-card" data-course="モバイルアプリ開発" data-professor="伊藤勇">
+                <div class="course-header">
+                    <div class="course-code">CS303</div>
+                    <h2 class="course-title">モバイルアプリ開発</h2>
+                </div>
+                
+                <div class="course-info">
+                    <div class="info-row">
+                        <span class="info-label">👨‍🏫 教員:</span>
+                        <span class="info-value professor">伊藤 勇</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">📅 開講:</span>
+                        <span class="info-value schedule">火曜日 5限 (16:20-17:50)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">📍 教室:</span>
+                        <span class="info-value">B棟 モバイル開発室</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">単位:</span>
+                        <span class="info-value credits">3単位</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            
         </div>
     </div>
 
-        
-    <div class="lecture-card">
-        <div class="lecture-content">
-            <h2 class="lecture-title">プログラミング基礎</h2>
-            <div class="lecture-details">
-                <div class="detail-item">
-                    <svg class="detail-icon instructor-icon" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
-                    <span class="detail-label">担当教員:</span>
-                    <span class="detail-value">佐藤 花子</span>
-                </div>
-                <div class="detail-item">
-                    <svg class="detail-icon calendar-icon" viewBox="0 0 24 24">
-                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                    </svg>
-                    <span class="detail-label">開講期:</span>
-                    <span class="detail-value">2024年度 前期</span>
-                </div>
-                <div class="detail-item">
-                    <svg class="detail-icon clock-icon" viewBox="0 0 24 24">
-                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
-                        <path d="m12.5 7-1 1v5.25l4.5 2.67.75-1.23L13 13V8z"/>
-                    </svg>
-                    <span class="detail-label">時限:</span>
-                    <span class="detail-value">木曜日 2限</span>
-                </div>
-                <div class="detail-item">
-                    <svg class="detail-icon location-icon" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                    </svg>
-                    <span class="detail-label">教室:</span>
-                    <span class="detail-value">情報棟 103</span>
-                </div>
-                <div class="detail-item">
-                    <svg class="detail-icon book-icon" viewBox="0 0 24 24">
-                        <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
-                    </svg>
-                    <span class="detail-label">単位数:</span>
-                    <span class="detail-value">3単位</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <script>
+        // 検索機能
+        const searchBox = document.getElementById('searchBox');
+        const syllabusGrid = document.getElementById('syllabusGrid');
+        const syllabusCards = document.querySelectorAll('.syllabus-card');
 
-        
-    <div class="lecture-card">
-        <div class="lecture-content">
-            <h2 class="lecture-title">ネットワーク工学</h2>
-            <div class="lecture-details">
-                <div class="detail-item">
-                    <svg class="detail-icon instructor-icon" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
-                    <span class="detail-label">担当教員:</span>
-                    <span class="detail-value">山田 一郎</span>
-                </div>
-                <div class="detail-item">
-                    <svg class="detail-icon calendar-icon" viewBox="0 0 24 24">
-                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                    </svg>
-                    <span class="detail-label">開講期:</span>
-                    <span class="detail-value">2024年度 後期</span>
-                </div>
-                <div class="detail-item">
-                    <svg class="detail-icon clock-icon" viewBox="0 0 24 24">
-                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
-                        <path d="m12.5 7-1 1v5.25l4.5 2.67.75-1.23L13 13V8z"/>
-                    </svg>
-                    <span class="detail-label">時限:</span>
-                    <span class="detail-value">月曜日 4限</span>
-                </div>
-                <div class="detail-item">
-                    <svg class="detail-icon location-icon" viewBox="0 0 24 24">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                    </svg>
-                    <span class="detail-label">教室:</span>
-                    <span class="detail-value">工学棟 305</span>
-                </div>
-                <div class="detail-item">
-                    <svg class="detail-icon book-icon" viewBox="0 0 24 24">
-                        <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
-                    </svg>
-                    <span class="detail-label">単位数:</span>
-                    <span class="detail-value">2単位</span>
-                </div>
-            </div>
-        </div>
-    </div>
+        searchBox.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            
+            syllabusCards.forEach(card => {
+                const courseName = card.getAttribute('data-course').toLowerCase();
+                const professorName = card.getAttribute('data-professor').toLowerCase();
+                const cardText = card.textContent.toLowerCase();
+                
+                if (courseName.includes(searchTerm) || 
+                    professorName.includes(searchTerm) || 
+                    cardText.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.3s ease';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
 
-        
-</div>
-```
+            // 検索結果がない場合のメッセージ
+            const visibleCards = Array.from(syllabusCards).filter(card => 
+                card.style.display !== 'none'
+            );
+            
+            // 既存の「検索結果がありません」メッセージを削除
+            const existingMessage = document.querySelector('.no-results');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            if (visibleCards.length === 0 && searchTerm !== '') {
+                const noResultsMessage = document.createElement('div');
+                noResultsMessage.className = 'no-results';
+                noResultsMessage.style.cssText = `
+                    grid-column: 1 / -1;
+                    text-align: center;
+                    padding: 40px;
+                    color: rgba(255,255,255,0.8);
+                    font-size: 1.1rem;
+                    background: rgba(255,255,255,0.1);
+                    border-radius: 16px;
+                    backdrop-filter: blur(10px);
+                `;
+                noResultsMessage.innerHTML = '📚 検索結果が見つかりませんでした';
+                syllabusGrid.appendChild(noResultsMessage);
+            }
+        });
 
+        // カードのホバーエフェクト強化
+        syllabusCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // アニメーション用のCSS追加
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
